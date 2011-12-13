@@ -39,7 +39,7 @@ else
       style   = options[:style]
 
       # If Rails 2.x
-      if defined? Rails and (Rails.version.split('.').map(&:to_i) <=> [2,3,5]) < 0
+      if defined? Rails and (Rails.version.split('.').map(&:to_i) <=> [3,0,0]) < 0
         render :status => status, :text => Proc.new { |response, output|
           output.write FasterCSV.generate_line(content.first.to_comma_headers(style))
           content.each { |line| output.write FasterCSV.generate_line(line.to_comma(style)) }
